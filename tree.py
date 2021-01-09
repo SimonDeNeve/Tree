@@ -78,9 +78,6 @@ class Tree:
                 return
             else:
                 self.__current = node
-            # self.path()
-        
-
 
     def path(self):
         path = ""
@@ -102,3 +99,4 @@ tree.mkdir("home")
 tree.cd("home")
 tree.mkdir("user")
 tree.cd("user")
+tree.path()
