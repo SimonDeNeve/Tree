@@ -70,25 +70,26 @@ class Tree:
     def cd(self, param):
         if param == ".." and not self.__current.isRoot():
             self.__current = self.__current.parent()
-            self.path()
-
         else:
             node = self.__current.find(param)
             if node is None:
                 return
             else:
                 self.__current = node
+        self.path()
+
 
     def path(self):
         path = ""
         arr = []
-        while self.__current:
-            if not self.__current.isRoot():
-                arr.append(self.__current._key + "/")
+        node = self.__current
+        while node:
+            if not node.isRoot():
+                arr.append(node._key + "/")
             else:
-                arr.append(self.__current._key)
+                arr.append(node._key)
                     
-            self.__current = self.__current.parent()
+            node = node.parent()
         for i in range(len(arr)-1 , -1, -1):
             path += arr[i]
 
